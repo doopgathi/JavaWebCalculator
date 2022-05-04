@@ -1,0 +1,12 @@
+---
+ - name: deploying war file
+   hosts: tomcat_centos
+   become: true
+   tasks:
+     - name: warfile
+       copy:
+         src:  /var/lib/jenkins/workspace/ci-java-test/target/WebAppCal-0.0.2.war
+         dest: /var/lib/tomcat/webappcalc.war
+         group: tomcat
+         user: tomcat
+
